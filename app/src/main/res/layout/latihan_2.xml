@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/satu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/satu"/>
+
+    <Button
+        android:id="@+id/dua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dua"
+        android:layout_below="@id/satu"
+        android:layout_alignParentEnd="true"/>
+
+    <Button
+        android:id="@+id/tiga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tiga"
+        android:layout_below="@id/dua"
+        android:layout_alignParentEnd="true"/>
+
+    <Button
+        android:id="@+id/empat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empat"
+        android:layout_below="@id/tiga"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/lima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lima"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/enam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enam"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/lima"/>
+
+    <Button
+        android:id="@+id/tujuh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tujuh"
+        android:layout_below="@id/enam"/>
+
+    <Button
+        android:id="@+id/delapan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tujuh"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/sembilan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tujuh"
+        android:layout_above="@id/delapan"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/sepuluh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tujuh"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

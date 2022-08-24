@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Latihan4">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/dp30"
+                    android:layout_height="@dimen/dp30"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:src="@drawable/user"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/say_hi"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/black"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:gravity="end">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp30"
+                        android:src="@drawable/ic_notif"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp20"
+            app:cardCornerRadius="@dimen/dp10"
+            app:cardElevation="@dimen/dp10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/lightblue"
+                    >
+
+                    <TextView
+                        android:id="@+id/titleCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="@string/title_card"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp16"
+                        android:textStyle="bold"
+                        android:paddingTop="@dimen/dp15"
+                        android:paddingStart="@dimen/dp15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/subTitleCard"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="@string/subtitle_card"
+                        android:textColor="@color/white"
+                        android:paddingStart="@dimen/dp15"
+                        android:paddingBottom="@dimen/dp15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleCard" />
+
+                    <ImageView
+                        android:id="@+id/imgInfo"
+                        android:layout_width="@dimen/dp20"
+                        android:layout_height="@dimen/dp20"
+                        android:src="@drawable/information"
+                        android:layout_margin="@dimen/dp15"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="85dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/hand_barcode"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imgInfo" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:src="@drawable/ic_key_arrow_down"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tvCheckin"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/poppins"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/materialButton"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dp15"
+                        android:backgroundTint="@color/second_lightblue"
+                        android:padding="@dimen/dp15"
+                        android:text="@string/check_in"
+                        android:textColor="@color/blue"
+                        android:fontFamily="@font/poppins"
+                        android:textAllCaps="false"
+                        android:textSize="12sp"
+                        app:cornerRadius="@dimen/dp20"
+                        app:icon="@drawable/scan"
+                        app:iconTint="@color/lightblue"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/second_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp20"
+            app:cardCornerRadius="@dimen/dp10"
+            app:cardElevation="@dimen/dp10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dp20">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/syringe"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/titleVaksin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/vaksin_booster"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp16"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/dp5"
+                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/subTitleVaksin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/hak_vaksin"
+                    android:textSize="@dimen/sp10"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintTop_toBottomOf="@id/titleVaksin" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imgOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/semi_white"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp15"
+            app:layout_constraintTop_toBottomOf="@id/second_card"
+            />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgOverlay"
+                android:layout_margin="@dimen/dp20"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="@dimen/dp10"
+                        android:layout_margin="@dimen/dp5"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/dp10"
+                            android:gravity="center"
+                            android:background="@drawable/shape_yellow">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/second_syringe"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/vaksin_dan_imunisasi"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/poppins"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="@dimen/dp10"
+                        android:layout_margin="@dimen/dp5"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/dp10"
+                            android:gravity="center"
+                            android:background="@drawable/shape_red">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/test"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hasil Tes COVID-19"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/poppins"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="@dimen/dp10"
+                        android:layout_margin="@dimen/dp5"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/dp10"
+                            android:gravity="center"
+                            android:background="@drawable/shape_green">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/encrypted"/>
+
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/ehc"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:fontFamily="@font/poppins"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="@dimen/dp10"
+                        android:layout_margin="@dimen/dp5"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/dp10"
+                            android:gravity="center"
+                            android:background="@drawable/shape_green">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/suitcases"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/aturan_perjalanan"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/poppins"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="@dimen/dp10"
+                        android:layout_margin="@dimen/dp5"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/dp10"
+                            android:gravity="center"
+                            android:background="@drawable/shape_yellow">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/stethoscope"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/teledokter"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:fontFamily="@font/poppins"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="@dimen/dp10"
+                        android:layout_margin="@dimen/dp5"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/dp10"
+                            android:gravity="center"
+                            android:background="@drawable/shape_green">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/hospital"/>
+
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pelayanan_kesehatan"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/poppins"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="@dimen/dp20"
+            android:src="@drawable/question_mark"
+            app:tint="@color/blue"
+            android:backgroundTint="@color/white"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>

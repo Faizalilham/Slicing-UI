@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Latihan3">
+
+<!--    Background bikin sendiri dari luar (Figma),
+        namun ini tidak responsive di semua tipe smartphone
+
+        Cek MainActivity2 background bikin lwt drawable,
+        responsive di semua tipe smartphone
+
+        -->
+
+      <androidx.core.widget.NestedScrollView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+          <androidx.constraintlayout.widget.ConstraintLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/third_bg_inti"
+              app:layout_behavior="@string/appbar_scrolling_view_behavior"
+              >
+
+              <androidx.appcompat.widget.Toolbar
+                  android:id="@+id/toolbar"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent"
+                  android:background="@drawable/bg_toolbar">
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+                      <ImageView
+                          android:layout_width="match_parent"
+                          android:layout_height="40dp"
+                          android:src="@drawable/logo"
+                          android:layout_gravity="center_vertical"
+                          android:layout_weight="1"
+                          android:layout_marginStart="3dp"
+                          />
+
+                      <ImageView
+                          android:layout_width="60dp"
+                          android:layout_height="50dp"
+                          android:layout_weight="1"
+                          android:layout_margin="@dimen/dp5"
+                          android:src="@drawable/notification"/>
+                  </LinearLayout>
+
+              </androidx.appcompat.widget.Toolbar>
+
+              <TextView
+                  android:id="@+id/text_saldo"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/jumlh_saldo"
+                  android:textSize="@dimen/sp18"
+                  android:textStyle="bold"
+                  android:fontFamily="@font/poppins"
+                  android:textColor="@color/white"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  android:layout_marginTop="@dimen/dp10"
+                  app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
+              <TextView
+                  android:id="@+id/text_rupiah"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/dp10"
+                  android:text="@string/Rupiah"
+                  android:textColor="@color/white"
+                  android:textSize="@dimen/sp18"
+                  android:fontFamily="@font/poppins"
+                  android:textStyle="bold"
+                  android:layout_marginBottom="@dimen/dp10"
+                  app:layout_constraintBottom_toTopOf="@+id/btnRekening"
+                  app:layout_constraintEnd_toStartOf="@+id/text_jmlh_saldo"
+                  app:layout_constraintTop_toBottomOf="@id/text_saldo" />
+
+
+              <com.google.android.material.textfield.TextInputLayout
+                  android:id="@+id/text_jmlh_saldo"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  android:layout_marginTop="@dimen/dp15"
+                  android:layout_marginStart="@dimen/dp5"
+                  app:endIconMode="password_toggle"
+                  app:endIconTint="@color/white"
+                  app:layout_constraintTop_toBottomOf="@id/text_saldo"
+                  style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                  <com.google.android.material.textfield.TextInputEditText
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="@string/jumlh_saldo_number"
+                      android:inputType="numberPassword"
+                      android:enabled="false"
+                      android:fontFamily="@font/poppins"
+                      android:background="@android:color/transparent"
+                      android:textColor="@color/white"/>
+              </com.google.android.material.textfield.TextInputLayout>
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btnRekening"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/rekening_lain"
+                  android:textColor="@color/white"
+                  app:strokeColor="@color/white"
+                  app:strokeWidth="1dp"
+                  android:fontFamily="@font/poppins"
+                  android:textAllCaps="false"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  android:layout_marginTop="@dimen/dp15"
+                  style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                  app:layout_constraintTop_toBottomOf="@id/text_jmlh_saldo"
+                  />
+
+
+              <androidx.cardview.widget.CardView
+                  android:id="@+id/card"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  app:cardCornerRadius="@dimen/dp10"
+                  app:cardElevation="@dimen/dp10"
+                  android:layout_margin="@dimen/dp20"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toBottomOf="@id/btnRekening">
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:padding="@dimen/dp20"
+                      android:orientation="vertical">
+                      <LinearLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal">
+
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:orientation="vertical">
+
+                              <androidx.constraintlayout.widget.ConstraintLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+                                  <ImageView
+                                      android:id="@+id/imagePulsa"
+                                      android:layout_width="50dp"
+                                      android:layout_height="50dp"
+
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toTopOf="parent"
+                                      android:src="@drawable/pulsa_data"/>
+                                  <TextView
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:text="@string/pulsa_data"
+                                      android:fontFamily="@font/poppins"
+                                      android:textColor="@color/black"
+                                      android:textAlignment="center"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toBottomOf="@id/imagePulsa"
+                                      android:textStyle="bold"/>
+                              </androidx.constraintlayout.widget.ConstraintLayout>
+                          </LinearLayout>
+
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:orientation="vertical">
+
+                              <androidx.constraintlayout.widget.ConstraintLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+                                  <ImageView
+                                      android:id="@+id/imageTransfer"
+                                      android:layout_width="50dp"
+                                      android:layout_height="50dp"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toTopOf="parent"
+                                      android:src="@drawable/tf"/>
+                                  <TextView
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:text="@string/transfer"
+                                      android:textColor="@color/black"
+                                      android:fontFamily="@font/poppins"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toBottomOf="@id/imageTransfer"
+                                      android:textStyle="bold"/>
+                              </androidx.constraintlayout.widget.ConstraintLayout>
+                          </LinearLayout>
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:orientation="vertical">
+
+                              <androidx.constraintlayout.widget.ConstraintLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+                                  <ImageView
+                                      android:id="@+id/imageDompetDigital"
+                                      android:layout_width="50dp"
+                                      android:layout_height="50dp"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toTopOf="parent"
+                                      android:src="@drawable/bitcoin"/>
+                                  <TextView
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:text="@string/dompet_digital"
+                                      android:textColor="@color/black"
+                                      android:textAlignment="center"
+                                      android:fontFamily="@font/poppins"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toBottomOf="@id/imageDompetDigital"
+                                      android:textStyle="bold"/>
+                              </androidx.constraintlayout.widget.ConstraintLayout>
+                          </LinearLayout>
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:orientation="vertical">
+
+                              <androidx.constraintlayout.widget.ConstraintLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+                                  <ImageView
+                                      android:id="@+id/imageBrizzi"
+                                      android:layout_width="50dp"
+                                      android:layout_height="50dp"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toTopOf="parent"
+                                      android:src="@drawable/pulsa_data"/>
+                                  <TextView
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:text="@string/brizzi"
+                                      android:textColor="@color/black"
+                                      android:fontFamily="@font/poppins"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toBottomOf="@id/imageBrizzi"
+                                      android:textStyle="bold"/>
+                              </androidx.constraintlayout.widget.ConstraintLayout>
+                          </LinearLayout>
+                      </LinearLayout>
+
+                      <LinearLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="@dimen/dp5"
+                          android:orientation="horizontal">
+
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:orientation="vertical">
+
+                              <androidx.constraintlayout.widget.ConstraintLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+                                  <ImageView
+                                      android:id="@+id/imageTarikTunai"
+                                      android:layout_width="50dp"
+                                      android:layout_height="50dp"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toTopOf="parent"
+                                      android:src="@drawable/cash"/>
+                                  <TextView
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:text="@string/tarik_tunai"
+                                      android:textColor="@color/black"
+                                      android:textAlignment="center"
+                                      android:fontFamily="@font/poppins"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toBottomOf="@id/imageTarikTunai"
+                                      android:textStyle="bold"/>
+                              </androidx.constraintlayout.widget.ConstraintLayout>
+                          </LinearLayout>
+
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:orientation="vertical">
+
+                              <androidx.constraintlayout.widget.ConstraintLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+                                  <ImageView
+                                      android:id="@+id/imageBriva"
+                                      android:layout_width="50dp"
+                                      android:layout_height="50dp"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toTopOf="parent"
+                                      android:src="@drawable/pulsa_data"/>
+                                  <TextView
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:text="@string/Briva"
+                                      android:textColor="@color/black"
+                                      android:fontFamily="@font/poppins"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toBottomOf="@id/imageBriva"
+                                      android:textStyle="bold"/>
+                              </androidx.constraintlayout.widget.ConstraintLayout>
+                          </LinearLayout>
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:orientation="vertical">
+
+                              <androidx.constraintlayout.widget.ConstraintLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+                                  <ImageView
+                                      android:id="@+id/imageListrik"
+                                      android:layout_width="50dp"
+                                      android:layout_height="50dp"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toTopOf="parent"
+                                      android:src="@drawable/flash"/>
+                                  <TextView
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:text="@string/listrik"
+                                      android:textColor="@color/black"
+                                      android:textAlignment="center"
+                                      android:fontFamily="@font/poppins"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toBottomOf="@id/imageListrik"
+                                      android:textStyle="bold"/>
+                              </androidx.constraintlayout.widget.ConstraintLayout>
+                          </LinearLayout>
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:orientation="vertical">
+
+                              <androidx.constraintlayout.widget.ConstraintLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+                                  <ImageView
+                                      android:id="@+id/imageLainnya"
+                                      android:layout_width="50dp"
+                                      android:layout_height="50dp"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toTopOf="parent"
+                                      android:src="@drawable/more"/>
+                                  <TextView
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:text="@string/lainnya"
+                                      android:textColor="@color/black"
+                                      android:fontFamily="@font/poppins"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintTop_toBottomOf="@id/imageLainnya"
+                                      android:textStyle="bold"/>
+                              </androidx.constraintlayout.widget.ConstraintLayout>
+                          </LinearLayout>
+                      </LinearLayout>
+
+                  </LinearLayout>
+
+              </androidx.cardview.widget.CardView>
+
+              <TextView
+                  android:id="@+id/tvCatatanKeuangan"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_margin="@dimen/dp20"
+                  android:text="@string/catatan_keuangan"
+                  android:textStyle="bold"
+                  android:fontFamily="@font/poppins"
+                  android:textSize="@dimen/sp18"
+                  android:textColor="@color/blue"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@id/card" />
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_margin="@dimen/dp20"
+                  android:text="@string/lihat_detail"
+                  android:textColor="@color/blue"
+                  android:textSize="@dimen/sp16"
+                  android:fontFamily="@font/poppins"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toBottomOf="@id/card" />
+
+
+              <androidx.cardview.widget.CardView
+                  android:id="@+id/second_card"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  app:cardCornerRadius="@dimen/dp10"
+                  app:cardElevation="@dimen/dp10"
+                  android:layout_margin="@dimen/dp20"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toBottomOf="@id/tvCatatanKeuangan">
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical">
+                      <LinearLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:orientation="horizontal">
+
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:background="@drawable/bg_shape"
+                              android:layout_weight="1"
+                              android:padding="@dimen/dp20"
+                              android:orientation="vertical">
+
+                             <LinearLayout
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:orientation="horizontal">
+
+
+                                 <ImageView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:src="@drawable/ic_arrow_down"/>
+
+                                 <TextView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:text="@string/pemasukan"
+                                     android:layout_marginStart="@dimen/dp10"
+                                     android:fontFamily="@font/poppins"
+                                     android:layout_gravity="center"
+                                     android:textColor="@color/gray"
+                                     />
+
+                             </LinearLayout>
+
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="@string/Rp"
+                                  android:fontFamily="@font/poppins"
+                                  android:layout_gravity="center"
+                                  android:textColor="@color/black"
+                                  android:textStyle="bold"
+                                  />
+
+                          </LinearLayout>
+
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:background="@drawable/bg_shape"
+                              android:layout_weight="1"
+                              android:padding="@dimen/dp20"
+                              android:orientation="vertical">
+
+                              <LinearLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:orientation="horizontal">
+
+
+                                  <ImageView
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:src="@drawable/ic_arrow_up"/>
+
+                                  <TextView
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:text="@string/pengeluaran"
+                                      android:layout_marginStart="@dimen/dp10"
+                                      android:fontFamily="@font/poppins"
+                                      android:layout_gravity="center"
+                                      android:textColor="@color/gray"
+                                      />
+
+                              </LinearLayout>
+
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="@string/Rp2"
+                                  android:layout_gravity="center"
+                                  android:fontFamily="@font/poppins"
+                                  android:textColor="@color/black"
+                                  android:textStyle="bold"
+                                  />
+
+                          </LinearLayout>
+
+
+                      </LinearLayout>
+                      <LinearLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:orientation="horizontal">
+
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:background="@drawable/bg_shape"
+                              android:layout_weight="1"
+                              android:orientation="vertical">
+
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="@string/selisih"
+                                  android:layout_marginEnd="@dimen/dp10"
+                                  android:layout_gravity="end"
+                                  android:fontFamily="@font/poppins"
+                                  android:textColor="@color/gray"
+                                  />
+
+                          </LinearLayout>
+
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:background="@drawable/bg_shape"
+                              android:layout_weight="1"
+                              android:orientation="vertical">
+
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="@string/Rp3"
+                                  android:fontFamily="@font/poppins"
+                                  android:layout_marginStart="@dimen/dp10"
+                                  android:textColor="@color/red"
+                                  android:textStyle="bold"
+                                  />
+
+
+                          </LinearLayout>
+
+                      </LinearLayout>
+
+                  </LinearLayout>
+
+              </androidx.cardview.widget.CardView>
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="100dp"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toBottomOf="@id/second_card">
+
+
+              </LinearLayout>
+
+          </androidx.constraintlayout.widget.ConstraintLayout>
+
+      </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fabCradleMargin="@dimen/dp15"
+        android:background="@color/white"
+        app:fabCradleVerticalOffset="@dimen/dp10"
+        android:fadeScrollbars="false"
+        android:layout_gravity="bottom">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp15"
+            android:fontFamily="@font/poppins"
+            android:background="@android:color/transparent"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav"/>
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/barcode"
+        android:backgroundTint="@color/blue"
+        app:tint="@android:color/white"
+        app:layout_anchor="@id/bottomAppBar"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
